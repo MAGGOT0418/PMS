@@ -9,11 +9,29 @@
         :root {
             --primary-color: #a3578d;
             --primary-light: #dec8d8;
+            --background-color: #f7f7f7;
+            --text-color: #000000;
         }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+        }
+
         .btn-custom {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
             color: white;
+        }
+
+        .btn-custom:hover {
+            background-color: var(--primary-light);
+            border-color: var(--primary-light);
+            color: var(--text-color);
         }
         .btn-custom:hover {
             background-color: var(--primary-light);
@@ -33,9 +51,22 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--primary-color);">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">PMS Teleconsulta</a>
+            <a class="navbar-brand fs-2 fw-bold" href="#">PMS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Pestaña de datos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="perfil.html">Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gestion.html">Gestion</a></li>
+                    <li class="nav-item"><a class="nav-link" href="llamadavr.html">Llamada</a></li>
+                </ul>
+                <a href="login.html" class="btn btn-outline-light ms-2">Login</a>
+            </div>
         </div>
     </nav>
 

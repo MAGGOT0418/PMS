@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMS - Dashboard del Proveedor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #a3578d;
+            --primary-light: #dec8d8;
+            --background-color: #f7f7f7;
+            --text-color: #000000;
+        }
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        .navbar {
+            background-color: var(--primary-color);
+        }
+        .btn-custom {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: var(--primary-light);
+            border-color: var(--primary-light);
+            color: var(--text-color);
+        }
+        .card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .sidebar {
+            background-color: var(--primary-light);
+        }
+        .sidebar .nav-link {
+            color: var(--text-color);
+        }
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .table-hover tbody tr:hover {
+            background-color: var(--primary-light);
+        }
+        .availability-slot {
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .availability-slot:hover {
+            background-color: var(--primary-light);
+        }
+        .availability-slot.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .accordion-button:not(.collapsed) {
+            background-color: var(--primary-light);
+            color: var(--text-color);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-2 fw-bold" href="#">PMS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Mensajes</a></li>
+                </ul>
+                <button class="btn btn-outline-light ms-2">Cerrar sesión</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#requests" data-bs-toggle="tab">
+                                <i class="bi bi-inbox me-2"></i> Solicitudes
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#availability" data-bs-toggle="tab">
+                                <i class="bi bi-calendar me-2"></i> Disponibilidad
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#history" data-bs-toggle="tab">
+                                <i class="bi bi-clock-history me-2"></i> Historial
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Dashboard del Proveedor</h1>
+                </div>
+
+                <div class="tab-content" id="myTabContent">
+                    <!-- Requests Tab -->
+                    <div class="tab-pane fade show active" id="requests" role="tabpanel">
+                        <h2 class="mb-4">Solicitudes de Servicio</h2>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Cliente</th>
+                                        <th>Servicio</th>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Juan Pérez</td>
+                                        <td>Reparación de tuberías</td>
+                                        <td>2023-06-15</td>
+                                        <td>10:00 AM</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-custom">Aceptar</button>
+                                            <button class="btn btn-sm btn-outline-danger">Rechazar</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>María López</td>
+                                        <td>Instalación de grifo</td>
+                                        <td>2023-06-16</td>
+                                        <td>2:00 PM</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-custom">Aceptar</button>
+                                            <button class="btn btn-sm btn-outline-danger">Rechazar</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Availability Tab -->
+                    <div class="tab-pane fade" id="availability" role="tabpanel">
+                        <h2 class="mb-4">Gestión de Disponibilidad</h2>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <h3>Esta Semana</h3>
+                                <div class="d-flex flex-wrap">
+                                    <div class="availability-slot p-2 m-1 border rounded">Lun 9AM-12PM</div>
+                                    <div class="availability-slot p-2 m-1 border rounded">Lun 1PM-5PM</div>
+                                    <div class="availability-slot p-2 m-1 border rounded">Mar 9AM-12PM</div>
+                                    <div class="availability-slot p-2 m-1 border rounded">Mar 1PM-5PM</div>
+                                    <div class="availability-slot p-2 m-1 border rounded">Mié 9AM-12PM</div>
+                                    <div class="availability-slot p-2 m-1 border rounded">Mié 1PM-5PM</div>
+                                    <div class="availability-slot p-2 m-1 border rounded">Jue 9AM-12PM</div>
+                                    <div class="availability-slot p-2 m-1 border rounded">Jue 1PM-5PM</div>
+                                    <div class="availability-slot p-2 m-1 border rounded">Vie 9AM-12PM</div>
+                                    <div class="availability-slot p-2 m-1 border rounded">Vie 1PM-5PM</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h3>Próxima Semana</h3>
+                                <div class="d-flex flex-wrap">
+                                    <div class="availability-slot p-2 m-1 border rounded">Lun 9AM-12PM</div>
+                                    <div class="availability-slot p-2 m-1 border rounded">Lun 1PM-5PM</div>
+                                    <div class="availability-slot p-2 m-1 border rounded">Mar 9AM-12PM</div>
+                                    <div class="availability-slot p-2 m-1 border rounded">Mar 1PM-5PM</div>
+                                    <div class="availability-slot p-2 m-1 border rounded">Mié 9AM-12PM</div>
+                                    <div class="availability-slot p-2 m-1 border rounded">Mié 1PM-5PM</div>
+                                    <div class="availability-slot p-2 m-1 border rounded">Jue 9AM-12PM</div>
+                                    <div class="availability-slot p-2 m-1 border rounded">Jue 1PM-5PM</div>
+                                    <div class="availability-slot p-2 m-1 border rounded">Vie 9AM-12PM</div>
+                                    <div class="availability-slot p-2 m-1 border rounded">Vie 1PM-5PM</div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-custom">Guardar disponibilidad</button>
+                    </div>
+
+                    <!-- History Tab -->
+                    <div class="tab-pane fade" id="history" role="tabpanel">
+                        <h2 class="mb-4">Historial de Servicios</h2>
+                        <div class="accordion" id="serviceHistory">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading1">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                        Reparación de tuberías - 2023-06-01
+                                    </button>
+                                </h2>
+                                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#serviceHistory">
+                                    <div class="accordion-body">
+                                        <p><strong>Cliente:</strong> Ana Rodríguez</p>
+                                        <p><strong>Valoración del cliente:</strong> 4.5/5</p>
+                                        <p><strong>Comentario del cliente:</strong> Excelente servicio, muy profesional.</p>
+                                        <div class="mb-3">
+                                            <label for="response1" class="form-label">Tu respuesta:</label>
+                                            <textarea class="form-control" id="response1" rows="3"></textarea>
+                                        </div>
+                                        <button class="btn btn-custom">Enviar respuesta</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                        Instalación de grifo - 2023-05-28
+                                    </button>
+                                </h2>
+                                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#serviceHistory">
+                                    <div class="accordion-body">
+                                        <p><strong>Cliente:</strong> Carlos Gómez</p>
+                                        <p><strong>Valoración del cliente:</strong> 5/5</p>
+                                        <p><strong>Comentario del cliente:</strong> Rápido y eficiente. Muy satisfecho con el resultado.</p>
+                                        <div class="mb-3">
+                                            <label for="response2" class="form-label">Tu respuesta:</label>
+                                            <textarea class="form-control" id="response2" rows="3"></textarea>
+                                        </div>
+                                        <button class="btn btn-custom">Enviar respuesta</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <p>&copy; 2023 PMS - Pro Management Services. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Availability slot toggling
+            const availabilitySlots = document.querySelectorAll('.availability-slot');
+            availabilitySlots.forEach(slot => {
+                slot.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
+            });
+
+            // Accept/Reject service request
+            const actionButtons = document.querySelectorAll('.btn-custom, .btn-outline-danger');
+            actionButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const action = this.classList.contains('btn-custom') ? 'aceptado' : 'rechazado';
+                    alert(`Servicio ${action}`);
+                    this.closest('tr').remove();
+                });
+            });
+
+            // Submit response to client review
+            const responseButtons = document.querySelectorAll('.btn-custom');
+            responseButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const responseText = this.previousElementSibling.querySelector('textarea').value;
+                    if (responseText) {
+                        alert('Respuesta enviada: ' + responseText);
+                        this.previousElementSibling.querySelector('textarea').value = '';
+                    } else {
+                        alert('Por favor, escribe una respuesta antes de enviar.');
+                    }
+                
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil del Proveedor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .custom-btn {
+            background-color: #a3578d;
+            border-color: #a3578d;
+            color: white;
+        }
+        .custom-btn:hover {
+            background-color: #8e4c7a;
+            border-color: #8e4c7a;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="mb-4">Perfil del Proveedor</h1>
+        
+        <ul class="nav nav-tabs mb-4" id="profileTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="personal-info-tab" data-bs-toggle="tab" data-bs-target="#personal-info" type="button" role="tab" aria-controls="personal-info" aria-selected="true">Información Personal</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="services-tab" data-bs-toggle="tab" data-bs-target="#services" type="button" role="tab" aria-controls="services" aria-selected="false">Gestión de Servicios</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="payment-methods-tab" data-bs-toggle="tab" data-bs-target="#payment-methods" type="button" role="tab" aria-controls="payment-methods" aria-selected="false">Métodos de Pago</button>
+            </li>
+        </ul>
+        
+        <div class="tab-content" id="profileTabsContent">
+            <div class="tab-pane fade show active" id="personal-info" role="tabpanel" aria-labelledby="personal-info-tab">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Editar Información Personal</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-4 d-flex align-items-center">
+                            <img src="https://via.placeholder.com/100" alt="Avatar" class="rounded-circle me-3" width="100" height="100">
+                            <button class="btn custom-btn">Cambiar foto</button>
+                        </div>
+                        <form>
+                            <div class="row mb-3">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="name" value="María García">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="email" value="maria@example.com">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Teléfono</label>
+                                    <input type="tel" class="form-control" id="phone" value="+34 987 654 321">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="address" class="form-label">Dirección</label>
+                                    <input type="text" class="form-control" id="address" value="Avenida Central 456, Barcelona">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="description" class="form-label">Descripción</label>
+                                    <textarea class="form-control" id="description" rows="3">Fontanera profesional con más de 10 años de experiencia.</textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn custom-btn">Guardar cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="services" role="tabpanel" aria-labelledby="services-tab">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Gestión de Servicios</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group mb-3">
+                            <div class="list-group-item">
+                                <div class="d-flex w-100 justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="mb-1">Reparación de tuberías</h5>
+                                        <p class="mb-1">Precio: €50/hora</p>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="service1" checked>
+                                        <label class="form-check-label" for="service1">Activo</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item">
+                                <div class="d-flex w-100 justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="mb-1">Instalación de grifos</h5>
+                                        <p class="mb-1">Precio: €30/hora</p>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="service2" checked>
+                                        <label class="form-check-label" for="service2">Activo</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item">
+                                <div class="d-flex w-100 justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="mb-1">Desatascos</h5>
+                                        <p class="mb-1">Precio: €40/hora</p>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="service3">
+                                        <label class="form-check-label" for="service3">Inactivo</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn custom-btn">Añadir nuevo servicio</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="payment-methods" role="tabpanel" aria-labelledby="payment-methods-tab">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Métodos de Pago Aceptados</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="paymentMethodsForm">
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="paypal" name="paypal">
+                                    <label class="form-check-label" for="paypal">
+                                        PayPal
+                                    </label>
+                                </div>
+                                <div id="paypalInfo" class="mt-2 ms-4" style="display: none;">
+                                    <input type="email" class="form-control mb-2" id="paypalEmail" placeholder="Correo electrónico de PayPal">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="bankTransfer" name="bankTransfer">
+                                    <label class="form-check-label" for="bankTransfer">
+                                        Transferencia bancaria
+                                    </label>
+                                </div>
+                                <div id="bankInfo" class="mt-2 ms-4" style="display: none;">
+                                    <input type="text" class="form-control mb-2" id="accountHolder" placeholder="Titular de la cuenta">
+                                    <input type="text" class="form-control mb-2" id="iban" placeholder="IBAN">
+                                    <input type="text" class="form-control mb-2" id="swift" placeholder="SWIFT/BIC">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="cash" name="cash">
+                                    <label class="form-check-label" for="cash">
+                                        Efectivo
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn custom-btn">Guardar cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const paypalCheckbox = document.getElementById('paypal');
+            const paypalInfo = document.getElementById('paypalInfo');
+            const bankTransferCheckbox = document.getElementById('bankTransfer');
+            const bankInfo = document.getElementById('bankInfo');
+
+            paypalCheckbox.addEventListener('change', function() {
+                paypalInfo.style.display = this.checked ? 'block' : 'none';
+            });
+
+            bankTransferCheckbox.addEventListener('change', function() {
+                bankInfo.style.display = this.checked ? 'block' : 'none';
+            });
+
+            document.getElementById('paymentMethodsForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Here you would typically send the form data to your server
+                console.log('Form submitted');
+            });
+        });
+    </script>
+</body>
+</html>

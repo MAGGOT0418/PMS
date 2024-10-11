@@ -3,23 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil del Proveedor</title>
+    <title>PMS - Perfil del Proveedor</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        .custom-btn {
-            background-color: #a3578d;
-            border-color: #a3578d;
+        :root {
+            --primary-color: #a3578d;
+            --primary-light: #dec8d8;
+            --background-color: #f7f7f7;
+            --text-color: #000000;
+        }
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        .navbar {
+            background-color: var(--primary-color);
+        }
+        .btn-custom {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
             color: white;
         }
-        .custom-btn:hover {
-            background-color: #8e4c7a;
-            border-color: #8e4c7a;
-            color: white;
+        .btn-custom:hover {
+            background-color: var(--primary-light);
+            border-color: var(--primary-light);
+            color: var(--text-color);
+        }
+        .card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .nav-tabs .nav-link.active {
+            background-color: var(--primary-light);
+            color: var(--text-color);
+            border-color: var(--primary-light);
+        }
+        .nav-tabs .nav-link:hover {
+            border-color: var(--primary-light);
+        }
+        .form-check-input:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
         }
     </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fs-2 fw-bold" href="#">PMS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Mensajes</a></li>
+                </ul>
+                <button class="btn btn-outline-light ms-2">Cerrar sesión</button>
+            </div>
+        </div>
+    </nav>
+
     <div class="container py-5">
         <h1 class="mb-4">Perfil del Proveedor</h1>
         
@@ -44,7 +93,7 @@
                     <div class="card-body">
                         <div class="mb-4 d-flex align-items-center">
                             <img src="https://via.placeholder.com/100" alt="Avatar" class="rounded-circle me-3" width="100" height="100">
-                            <button class="btn custom-btn">Cambiar foto</button>
+                            <button class="btn btn-custom">Cambiar foto</button>
                         </div>
                         <form>
                             <div class="row mb-3">
@@ -69,7 +118,7 @@
                                     <textarea class="form-control" id="description" rows="3">Fontanera profesional con más de 10 años de experiencia.</textarea>
                                 </div>
                             </div>
-                            <button type="submit" class="btn custom-btn">Guardar cambios</button>
+                            <button type="submit" class="btn btn-custom">Guardar cambios</button>
                         </form>
                     </div>
                 </div>
@@ -118,7 +167,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn custom-btn">Añadir nuevo servicio</button>
+                        <button class="btn btn-custom">Añadir nuevo servicio</button>
                     </div>
                 </div>
             </div>
@@ -161,13 +210,19 @@
                                     </label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn custom-btn">Guardar cambios</button>
+                            <button type="submit" class="btn btn-custom">Guardar cambios</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <p>&copy; 2023 PMS - Pro Management Services. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMS - Teleconsulta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #a3578d;
+            --primary-light: #dec8d8;
+        }
+        .btn-custom {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: var(--primary-light);
+            border-color: var(--primary-light);
+            color: black;
+        }
+        .video-container {
+            aspect-ratio: 16 / 9;
+            background-color: #000;
+        }
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--primary-color);">
+        <div class="container">
+            <a class="navbar-brand" href="#">PMS Teleconsulta</a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="position-relative">
+                    <div class="video-container rounded">
+                        <img src="https://via.placeholder.com/1280x720.png?text=Video+Principal" alt="Video Principal" class="img-fluid rounded">
+                    </div>
+                    <div class="controls">
+                        <button class="btn btn-custom me-2"><i class="bi bi-mic"></i> Mute</button>
+                        <button class="btn btn-custom me-2"><i class="bi bi-camera-video"></i> Video</button>
+                        <button class="btn btn-danger"><i class="bi bi-telephone-x"></i> Finalizar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="mb-3">
+                    <div class="video-container rounded">
+                        <img src="https://via.placeholder.com/320x180.png?text=Video+Usuario" alt="Video Usuario" class="img-fluid rounded">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Detalles de la consulta</h5>
+                        <p><strong>Paciente:</strong> Juan Pérez</p>
+                        <p><strong>Doctor:</strong> Dra. María García</p>
+                        <p><strong>Fecha:</strong> 15 de junio, 2023</p>
+                        <p><strong>Hora:</strong> 10:00 AM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

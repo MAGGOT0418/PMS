@@ -7,36 +7,82 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #a3578d;
+            --primary-light: #dec8d8;
+            --background-color: #f7f7f7;
+            --text-color: #000000;
+        }
+
         body {
-            background-color: #f7f7f7;
+            background-color: var(--background-color);
+            color: var(--text-color);
             min-height: 100vh;
         }
+
+        .navbar {
+            background-color: var(--primary-color);
+        }
+
+        .btn-outline-light {
+            color: white;
+            border-color: white;
+        }
+
+        .btn-outline-light:hover {
+            color: var(--primary-light);
+            border-color: var(--primary-light);
+        }
+
         .custom-btn {
             background-color: #a3578d;
             border-color: #a3578d;
             color: white;
         }
+
         .custom-btn:hover {
             background-color: #dec8d8;
             border-color: #dec8d8;
         }
+
         .provider-card, .payment-card, .contract-card {
             background-color: white;
             border-radius: 0.5rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
+
         .provider-price {
             color: #a3578d;
         }
+
         .star-icon {
             color: #fbbf24;
         }
+
         .progress-bar {
             background-color: #a3578d;
         }
     </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fs-2 fw-bold" href="#">PMS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Pestaña de datos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="perfil.html">Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gestion.html">Gestion</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                </ul>
+                <a href="login.html" class="btn btn-outline-light ms-2">Login</a>
+            </div>
+        </div>
+    </nav>
     <div class="container py-4">
         <h1 class="h2 fw-bold mb-4 text-black">Pago y Contratos Inteligentes</h1>
         
@@ -109,6 +155,7 @@
                         </ul>
                     </div>
                     <button class="btn custom-btn w-100 mt-3">Ver detalles del contrato</button>
+                    <button class="btn custom-btn w-100 mt-3" onclick="window.location.href='chatbot.html'">Chatbot</button>
                 </div>
             </div>
         </div>
